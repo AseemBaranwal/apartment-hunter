@@ -1,0 +1,69 @@
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Byte-compiled
+*.manifest
+*.spec
+
+# ------------------------
+# VSCode
+# ------------------------
+.vscode/
+.history/
+
+# ------------------------
+# OS-specific
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# Docker
+# ------------------------
+# Docker volumes/data (never commit local DB)
+db_data/
+pgadmin_data/
+
+# Avoid committing build artifacts
+*.log
+*.pid
+
+# ------------------------
+# FastAPI / Uvicorn
+# ------------------------
+*.db
+*.sqlite3
+
+# ------------------------
+# Tests / Coverage
+# ------------------------
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+
+# ------------------------
+# Documentation / Diagrams (optional)
+# ------------------------
+documentation/*.png
+documentation/*.jpg
+documentation/*.jpeg
+documentation/*.pdf
+
+# Keep ER diagrams source if you want
+!documentation/*.md
