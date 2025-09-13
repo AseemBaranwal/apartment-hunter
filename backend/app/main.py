@@ -1,14 +1,19 @@
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 from .routers import communities
 from .database import engine, Base
 
-app = FastAPI()
 
-
-@app.on_event("startup")
-async def startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: ensure tables exist
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    yield
+    # Shutdown: nothing to clean up currently
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 @app.get("/health")
